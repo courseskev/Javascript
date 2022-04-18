@@ -26,9 +26,25 @@ a:link {
 }
 
 .blank {
-    height: 50px;
+    margin-top: 100px;
+    float: left;
 }
 
 p {
     font-size: 20px;
+}
+
+.right {
+    height: 240px;
+    width: 50%;
+    float: left;
+}
+
+.left {
+    float: left;
+    width: 50%;
+}
+
+.reprobar {
+    margin-top: 20px;
 }

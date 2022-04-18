@@ -10,12 +10,40 @@
 </head>
 
 <body>
-    <h1>Hey there, I'm a simulator</h1>
+    <h1>Notes simulator</h1>
+    <p>Enter the student's name and the scores to get the final note.</p>
+    <br><br>
 
-    <div class="blank"></div>
-    <div class="button"><a href="index.html">Cycles</a> </div>
-    <div class="button"><a href="cycles.html">Simulator</a></div>
-    <script src="js/simulador.js"></script>
+
+    <div class="left">
+        <form action="#" name="studentsForm">
+            <label for=" fname">Student name:</label><br>
+            <input type="text" id="student" name="student"><br><br>
+            <label for="lname">Grade 1 (30%):</label><br>
+            <input type="text" id="grade_1" name="grade_1"><br><br>
+            <label for="lname">Grade 2 (30%):</label><br>
+            <input type="text" id="grade_2" name="grade_2"><br><br>
+            <label for="lname">Grade 3 (40%):</label><br>
+            <input type="text" id="grade_3" name="grade_3"><br><br>
+            <input type="submit" value="Done" onclick="calculateFinalScore();">
+            <input type="submit" value="Clear" onclick="clear();">
+        </form>
+    </div>
+    <div class="right">
+        <h2>Final Score</h2>
+        <form action="" name="notes">
+            <input type="text" id="final" name="final"><br>
+        </form>
+
+        <div id="aprobar" class="reprobar"></div>
+    </div>
+
+    <div class="blank">
+        <p>Return to:</p>
+        <div class="button"><a href="index.html">Index</a> </div>
+        <div class="button"><a href="cycles.html">Cycles</a></div>
+        <script src="js/simulador.js"></script>
+    </div>
 </body>
 
 </html>
