@@ -10,43 +10,56 @@ function calculateFinalScore() {
     let finalScore = 0;
     let note = null;
 
-
-    /*console.log(student, " ", grade1, " ",
-        grade2, " ", grade3);*/
-
     finalScore = grade1 * .3 + grade2 * .3 + grade3 * .4;
 
     document.notes.final.value = finalScore;
 
-    if (finalScore >= 3.0) {
+    if (finalScore >= 3.0)
         note = "Aprobó.";
-        //aprobar.innerHTML = `${student} APROBÓ :D`
-    } else {
+    else
         note = "NO Aprobó";
-        //aprobar.innerHTML = `${student} REPROBÓ :(`
-    }
 
-    studentsNotes.push({
+
+    /*studentsNotes.push({
         student,
         finalScore,
         note
-    });
-    printStudentsList(studentsNotes);
-    //console.log(studentsNotes[0]);
+    });*/
+    studentsNotes.push(`${student}, ${finalScore}, ${note}`);
 }
 
 function printStudentsList() {
     event.preventDefault();
-    for (let index = 0; index < studentsNotes.length; index++) {
-        console.log(studentsNotes[index]);
+
+    if (studentsNotes.length == 0)
+        console.log("The list is empty");
+    else {
+        console.log("The list of the students is: ")
+        for (let index = 0; index < studentsNotes.length; index++) {
+            console.log(index + 1 + ')', studentsNotes[index]);
+        }
+    }
+
+}
+
+function deleteScore() {
+    event.preventDefault();
+    if (studentsNotes.length == 0)
+        console.log("The list is empty");
+    else {
+        let index = parseInt(prompt("Enter the student number  to delete"));
+        studentsNotes.splice(index, 1);
+        console.log("Item deleted succesfully")
     }
 }
 
-function clear() {
+function clear2() {
     event.preventDefault();
     document.studentsForm.student.value = " ";
     document.studentsForm.grade_1.value = " ";
     document.studentsForm.grade_2.value = " ";
     document.studentsForm.grade_3.value = " ";
     document.notes.final.value = " ";
+    //$('#studentsForm').trigger("reset");
+    //$('form[name="document.studentsForm"]')[0].reset();
 }
