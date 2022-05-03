@@ -1,5 +1,6 @@
-//alert();
-let studentsNotes = [];
+let studentsScores = []; //0.0 to 5.0
+let studentsNotes = []; //aprobó o no aprobó
+let students = []; // names
 
 function calculateFinalScore() {
     event.preventDefault();
@@ -19,13 +20,12 @@ function calculateFinalScore() {
     else
         note = "NO Aprobó";
 
+    aprobar.innerHTML = `${student}: ${note}`;
 
-    /*studentsNotes.push({
-        student,
-        finalScore,
-        note
-    });*/
-    studentsNotes.push(`${student}, ${finalScore}, ${note}`);
+    students.push(student);
+    studentsNotes.push(note);
+    studentsScores.push(finalScore);
+    //studentsNotes.push(`${student}, ${finalScore}, ${note}`);
 }
 
 function printStudentsList() {
@@ -36,7 +36,7 @@ function printStudentsList() {
     else {
         console.log("The list of the students is: ")
         for (let index = 0; index < studentsNotes.length; index++) {
-            console.log(index + 1 + ')', studentsNotes[index]);
+            console.log(index + ')', students[index] + " " + studentsScores[index] + " " + studentsNotes[index]);
         }
     }
 
@@ -47,8 +47,10 @@ function deleteScore() {
     if (studentsNotes.length == 0)
         console.log("The list is empty");
     else {
-        let index = parseInt(prompt("Enter the student number  to delete"));
+        let index = parseInt(prompt("Enter the student number to delete"));
+        students.splice(index, 1);
         studentsNotes.splice(index, 1);
+        studentsScores.splice(index, 1);
         console.log("Item deleted succesfully")
     }
 }
@@ -60,6 +62,15 @@ function clear2() {
     document.studentsForm.grade_2.value = " ";
     document.studentsForm.grade_3.value = " ";
     document.notes.final.value = " ";
-    //$('#studentsForm').trigger("reset");
-    //$('form[name="document.studentsForm"]')[0].reset();
+}
+
+function searchStudent() {
+    event.preventDefault();
+    let target = prompt("Enter student's name");
+
+    if (students.includes(target)) {
+        let index = students.findIndex(s => s === target);
+        console.log("Result: ", students[index] + " " + studentsScores[index] + " " + studentsNotes[index]);
+    } else
+        console.log("Student doesn't exist");
 }
