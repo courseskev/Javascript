@@ -11,21 +11,33 @@ function calculateFinalScore() {
     let finalScore = 0;
     let note = null;
 
-    finalScore = grade1 * .3 + grade2 * .3 + grade3 * .4;
+    if (!student)
+        alert("The field 'student name' is mandatory");
+    else if (!grade1)
+        alert("The field 'Grade 1' is mandatory");
+    else if (!grade2)
+        alert("The field 'Grade 2' is mandatory");
+    else if (!grade3)
+        alert("The field 'Grade 3' is mandatory");
+    else {
+        finalScore = grade1 * .3 + grade2 * .3 + grade3 * .4;
 
-    document.notes.final.value = finalScore;
+        document.notes.final.value = finalScore;
 
-    if (finalScore >= 3.0)
-        note = "Aprobó.";
-    else
-        note = "NO Aprobó";
+        if (finalScore >= 3.0)
+            note = "Aprobó.";
+        else
+            note = "NO Aprobó";
 
-    aprobar.innerHTML = `${student}: ${note}`;
+        aprobar.innerHTML = `${student}: ${note}`;
 
-    students.push(student);
-    studentsNotes.push(note);
-    studentsScores.push(finalScore);
-    //studentsNotes.push(`${student}, ${finalScore}, ${note}`);
+        students.push(student);
+        studentsNotes.push(note);
+        studentsScores.push(finalScore);
+    }
+
+
+
 }
 
 function printStudentsList() {
