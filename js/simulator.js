@@ -2,9 +2,20 @@ let studentsScores = []; //0.0 to 5.0
 let studentsNotes = []; //aprobó o no aprobó
 let students = []; // names
 
+function createStudents() {
+    //event.preventDefault();   
+    localStorage.setItem("1", "Juan Balsero");
+    localStorage.setItem("2", "Ana Karenina");
+    localStorage.setItem("3", "Jack Sparrow ");
+}
+
+createStudents();
+let student = localStorage.getItem("1");
+document.studentsForm.student.value = student;
+
 function calculateFinalScore() {
     event.preventDefault();
-    let student = document.getElementById('student').value;
+    //let student = document.getElementById('student').value;
     let grade1 = parseFloat(document.getElementById('grade_1').value);
     let grade2 = parseFloat(document.getElementById('grade_2').value);
     let grade3 = parseFloat(document.getElementById('grade_3').value);
