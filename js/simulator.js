@@ -23,13 +23,14 @@ function calculateFinalScore() {
     let note = null;
 
     if (!student)
-        alert("The field 'student name' is mandatory");
+        Swal.fire('Any fool can use a computer');
+    //alert("The field 'student name' is mandatory");
     else if (!grade1)
-        alert("The field 'Grade 1' is mandatory");
+        Swal.fire("The field 'Grade 1' is mandatory");
     else if (!grade2)
-        alert("The field 'Grade 2' is mandatory");
+        Swal.fire("The field 'Grade 2' is mandatory");
     else if (!grade3)
-        alert("The field 'Grade 3' is mandatory");
+        Swal.fire("The field 'Grade 3' is mandatory");
     else {
         finalScore = grade1 * .3 + grade2 * .3 + grade3 * .4;
 
@@ -45,6 +46,7 @@ function calculateFinalScore() {
         students.push(student);
         studentsNotes.push(note);
         studentsScores.push(finalScore);
+        Swal.fire("Grades added sucessfully");
     }
 
 
