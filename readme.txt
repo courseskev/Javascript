@@ -1,1 +1,0 @@
-Here we found the deeliveries from cycles/iterations and functions.
