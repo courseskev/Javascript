@@ -1,0 +1,16 @@
+[
+    {
+        "id":1,
+        "nombre": "Juan Perez",
+        "nota": 3.5,
+        "calificacion": "aprobó"
+    },
+    {
+        "id":1,
+        "nombre": "Claudia Palacios",
+        "nota": 2.0,
+        "calificacion": "no aprobó"
+    }
+
+]
+    
